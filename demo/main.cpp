@@ -35,7 +35,8 @@ int main([[maybe_unused]]int argc, [[maybe_unused]]char** argv) {
     }
     if (vm.count("thread-count")) {
         arguments.threadCount = vm["thread-count"].as<size_t>();
-        if ((arguments.threadCount > std::thread::hardware_concurrency()) || (arguments.threadCount <= 0))
+        if ((arguments.threadCount > std::thread::hardware_concurrency()) ||
+            (arguments.threadCount <= 0))
             arguments.threadCount = std::thread::hardware_concurrency();
     }
     if (vm.count("output")) {
